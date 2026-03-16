@@ -1,8 +1,15 @@
 FROM php:8.2-apache
 
+# Ensure required PHP extensions are installed (mysqli + pdo_mysql for MySQL)
+RUN docker-php-ext-install mysqli pdo_mysql
+
 # Ensure only one MPM is enabled (some platforms may enable multiple by default)
 RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
  && a2enmod mpm_prefork
+
+# Force unload any other MPMs in case the environment tries to enable them
+RUN printf 'UnloadModule mpm_event_module\nUnloadModule mpm_worker_module\n' > /etc/apache2/conf-available/disable-other-mpms.conf \
+ && a2enconf disable-other-mpms
 
 # Enable Apache rewrite rules (needed for your panel.htaccess)
 RUN a2enmod rewrite
