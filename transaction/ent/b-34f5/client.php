@@ -1,8 +1,23 @@
 <?php
 $ip = getenv("REMOTE_ADDR");
-setlocale(LC_TIME, "spanish");
-$tiempo = strftime("%A, %d de %B de %Y");
+
 date_default_timezone_set('America/Bogota');
+
+// Format date in Spanish without using deprecated strftime()
+if (class_exists('IntlDateFormatter')) {
+    $formatter = new IntlDateFormatter(
+        'es_CO',
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::NONE,
+        'America/Bogota',
+        IntlDateFormatter::GREGORIAN,
+        "EEEE, dd 'de' MMMM 'de' yyyy"
+    );
+    $tiempo = $formatter->format(new DateTime());
+} else {
+    // Fallback: use date() (not localized)
+    $tiempo = date('l, d \\d\\e F \\d\\e Y');
+}
 ?>
 <html>
 	<head>
