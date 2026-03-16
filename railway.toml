@@ -1,0 +1,14 @@
+# Railway will use this project configuration when linked from the CLI.
+# If you rely on Docker, it will build using the Dockerfile in this directory.
+
+[project]
+name = "vanti-vercel"
+
+[build]
+# Use docker (default when Dockerfile exists).
+# Here for clarity only.
+command = "docker build -t railway-app ."
+
+[deploy]
+# Railway will serve the container on the port it provides via $PORT
+command = "docker run -p $PORT:$PORT railway-app"

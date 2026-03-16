@@ -1,0 +1,13 @@
+# Ignore local OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Git metadata
+.git
+
+# Ignore node_modules if present
+node_modules
+
+# Ignore Vercel/Railway build artifacts
+dist
+build

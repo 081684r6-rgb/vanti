@@ -1,0 +1,86 @@
+body{
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: #F8F9FA;
+    font-family: Mulish, sans-serif !important;
+}
+
+.cabecera{
+    background-color: #113356;
+}
+
+.contenido{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+.section-title {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.tittle {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding: 22px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+    transition: border-color 0.3s ease;
+    text-align: left;
+}
+
+.recuadro {
+    border: 1px solid #dee2e6;
+    padding: 0;
+    border-radius: 8px;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form input.custom-input, .payment-form select.custom-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-consultar:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+.btn-consultar {
+    background-color: rgb(108, 117, 125);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.section-form {
+    padding: 0px 14px;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width:1199px) {
+
+}
+
