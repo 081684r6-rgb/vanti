@@ -37,4 +37,5 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/ || exit 1
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["docker-php-entrypoint"]
+CMD ["apache2-foreground"]
