@@ -20,9 +20,17 @@ $destino = "https://www.birdi3fy.com/";
 $inicio = "USER/scis/j6UnVHZsitlYrxStPNFUN4TsSjgEJkN7dlDp6FXSjFxO/3D/no-back-button";
 
 function conectar (){
-	$conn = mysqli_connect($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["database"], $GLOBALS["port"]);
+	$host = $GLOBALS["servername"];
+	$user = $GLOBALS["username"];
+	$pass = $GLOBALS["password"];
+	$db   = $GLOBALS["database"];
+	$port = $GLOBALS["port"];
+
+	// Try to connect; if it fails, return null instead of dying.
+	$conn = @mysqli_connect($host, $user, $pass, $db, $port);
 	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	    error_log("DB connect failed: " . mysqli_connect_error() . " (host=$host port=$port)");
+	    return null;
 	}
 	return $conn;
 }
