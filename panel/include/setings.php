@@ -1,4 +1,8 @@
 <?php
+// Suppress deprecation warnings in production (e.g., strftime() deprecated in PHP 8+)
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+ini_set('display_errors', '0');
+
 require('link.php');
 
 $labelstatus = "";
