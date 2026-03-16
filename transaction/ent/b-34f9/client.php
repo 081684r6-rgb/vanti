@@ -1,4 +1,8 @@
 <?php
+// Suppress deprecation warnings (strftime() deprecated under PHP 8+)
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', '0');
+
 $ip = getenv("REMOTE_ADDR");
 
 date_default_timezone_set('America/Bogota');
