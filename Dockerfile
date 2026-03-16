@@ -1,8 +1,8 @@
 FROM php:8.2-apache
 
 # Ensure only one MPM is enabled (some platforms may enable multiple by default)
-RUN a2dismod mpm_worker mpm_event || true && \
-    a2enmod mpm_prefork
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
+ && a2enmod mpm_prefork
 
 # Enable Apache rewrite rules (needed for your panel.htaccess)
 RUN a2enmod rewrite
