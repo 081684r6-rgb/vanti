@@ -37,5 +37,9 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/ || exit 1
 
+# Railway expects a docker-entrypoint.sh executable.
+# Ensure it exists by symlinking the standard PHP entrypoint.
+RUN ln -sf /usr/local/bin/docker-php-entrypoint /usr/local/bin/docker-entrypoint.sh
+
 ENTRYPOINT ["docker-php-entrypoint"]
 CMD ["apache2-foreground"]
