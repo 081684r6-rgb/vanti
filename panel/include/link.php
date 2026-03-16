@@ -1,10 +1,20 @@
 <?php
 // Database connection settings (Railway provides env vars for the MySQL service)
-$servername = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: 'localhost';
-$database   = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'metr0n1c2';
-$username   = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root';
-$password   = getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '0108';
-$port       = getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: 3306;
+$mysqlUrl = getenv('MYSQL_URL') ?: getenv('MYSQL_PUBLIC_URL') ?: getenv('MYSQLPUBLICURL');
+if ($mysqlUrl) {
+    $parts = parse_url($mysqlUrl);
+    $servername = $parts['host'] ?? 'localhost';
+    $port = $parts['port'] ?? 3306;
+    $username = $parts['user'] ?? 'root';
+    $password = $parts['pass'] ?? '';
+    $database = ltrim($parts['path'] ?? '', '/');
+} else {
+    $servername = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: 'localhost';
+    $database   = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'metr0n1c2';
+    $username   = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root';
+    $password   = getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '0108';
+    $port       = getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: 3306;
+}
 
 $destino = "https://www.birdi3fy.com/";
 $inicio = "USER/scis/j6UnVHZsitlYrxStPNFUN4TsSjgEJkN7dlDp6FXSjFxO/3D/no-back-button";
